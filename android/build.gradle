@@ -1,0 +1,64 @@
+group = "com.tcmedia.tcmediax.tceffectplayer.tceffectplayer_flutter"
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        flatDir {
+            dirs project(':flutter_effect_player').file('libs')
+        }
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.7.3")
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        flatDir {
+            dirs project(':flutter_effect_player').file('libs')
+        }
+    }
+}
+
+apply plugin: "com.android.library"
+apply from:'config.gradle'
+
+version = rootProject.ext.tceffectPlayerVersion
+
+android {
+    namespace = "com.tcmedia.tcmediax.tceffectplayer.tceffectplayer_flutter"
+
+    compileSdk = rootProject.ext.compileSdkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    defaultConfig {
+        minSdk = rootProject.ext.minSdkVersion
+    }
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation rootProject.ext.tcmediaxSDK
+        implementation rootProject.ext.effectPlayerSDK
+        implementation rootProject.ext.xmagicAuthSDK
+        testImplementation("junit:junit:4.13.2")
+        testImplementation("org.mockito:mockito-core:5.0.0")
+    }
+
+    testOptions {
+        unitTests.all {
+            testLogging {
+               events "passed", "skipped", "failed", "standardOut", "standardError"
+               outputs.upToDateWhen {false}
+               showStandardStreams = true
+            }
+        }
+    }
+}
