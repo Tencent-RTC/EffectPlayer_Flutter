@@ -38,9 +38,10 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    FTCMediaXBase.instance.setLicense(LICENSE_URL, LICENSE_KEY, (code, msg) {
-      print("TCMediax setLicense code:$code | msg:$msg");
-    });
+    // no need to setLicense
+    // FTCMediaXBase.instance.setLicense(LICENSE_URL, LICENSE_KEY, (code, msg) {
+    //   print("TCMediax setLicense code:$code | msg:$msg");
+    // });
     FTCMediaXBase.instance.setLogEnable(true);
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
