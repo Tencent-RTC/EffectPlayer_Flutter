@@ -105,6 +105,12 @@ class FTCEffectViewController implements FTCEffectAnimViewFlutterEvent {
     return await _effectViewApi.getSdkVersion();
   }
 
+  Future<FTCEffectAnimInfo> preloadTCAnimInfo(String playUrl, FTCEffectConfig config) async {
+    FTCEffectAnimInfoMsg msg = await _effectViewApi.preloadTCAnimInfo(playUrl, config.toMsg());
+    return FTCEffectAnimInfo.copyFromMsg(msg);
+  }
+
+
   // Future<void> onDestroy() async {
   //   await _effectViewApi.onDestroy();
   // }

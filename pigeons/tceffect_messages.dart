@@ -128,6 +128,8 @@ abstract class FTCEffectAnimViewApi {
   void setRate(double rate);
 
   String getSdkVersion();
+
+  FTCEffectAnimInfoMsg preloadTCAnimInfo(String playUrl, FTCEffectConfigMsg config);
 }
 
 @FlutterApi()

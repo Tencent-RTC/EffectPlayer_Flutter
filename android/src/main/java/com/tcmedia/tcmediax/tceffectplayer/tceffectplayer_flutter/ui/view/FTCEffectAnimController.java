@@ -166,6 +166,13 @@ public class FTCEffectAnimController implements TCEffectMessages.FTCEffectAnimVi
 
     @NonNull
     @Override
+    public TCEffectMessages.FTCEffectAnimInfoMsg preloadTCAnimInfo(@NonNull String playUrl, @NonNull TCEffectMessages.FTCEffectConfigMsg config) {
+        TCEffectConfig effectConfig = FEffectViewHelper.transConfigFromMsg(config);
+        return FEffectViewHelper.transAnimInfoToMsg(TCEffectAnimView.preloadTCAnimInfo(playUrl, effectConfig));
+    }
+
+    @NonNull
+    @Override
     public String getSdkVersion() {
         return TCEffectAnimView.getSdkVersion();
     }

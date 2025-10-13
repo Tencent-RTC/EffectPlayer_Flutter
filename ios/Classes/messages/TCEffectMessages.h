@@ -129,6 +129,8 @@ extern void SetUpFTCMediaXBaseApiWithSuffix(id<FlutterBinaryMessenger> binaryMes
 - (void)setRateRate:(double)rate error:(FlutterError *_Nullable *_Nonnull)error;
 /// @return `nil` only when `error != nil`.
 - (nullable NSString *)getSdkVersionWithError:(FlutterError *_Nullable *_Nonnull)error;
+/// @return `nil` only when `error != nil`.
+- (nullable FTCEffectAnimInfoMsg *)preloadTCAnimInfoPlayUrl:(NSString *)playUrl config:(FTCEffectConfigMsg *)config error:(FlutterError *_Nullable *_Nonnull)error;
 @end
 
 extern void SetUpFTCEffectAnimViewApi(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FTCEffectAnimViewApi> *_Nullable api);
