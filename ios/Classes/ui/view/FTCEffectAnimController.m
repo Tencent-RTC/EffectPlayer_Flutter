@@ -114,6 +114,10 @@
     return [TCEffectAnimView getSdkVersion];
 }
 
+- (FTCEffectAnimInfoMsg *)preloadTCAnimInfoPlayUrl:(NSString *)playUrl config:(FTCEffectConfigMsg *)config error:(FlutterError * _Nullable __autoreleasing *)error{
+    return [FEffectViewHelper transAnimInfoToMsg:[TCEffectAnimView preloadTCAnimInfo:playUrl config:[FEffectViewHelper transConfigFromMsg:config]]];;
+}
+
 #pragma mark - TCEPAnimViewDelegate
 
 - (void)onPlayEvent:(ITCEffectPlayer *)player

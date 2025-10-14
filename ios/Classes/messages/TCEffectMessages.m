@@ -763,6 +763,26 @@ void SetUpFTCEffectAnimViewApiWithSuffix(id<FlutterBinaryMessenger> binaryMessen
       [channel setMessageHandler:nil];
     }
   }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:[NSString stringWithFormat:@"%@%@", @"dev.flutter.pigeon.flutter_effect_player.FTCEffectAnimViewApi.preloadTCAnimInfo", messageChannelSuffix]
+        binaryMessenger:binaryMessenger
+        codec:nullGetTCEffectMessagesCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(preloadTCAnimInfoPlayUrl:config:error:)], @"FTCEffectAnimViewApi api (%@) doesn't respond to @selector(preloadTCAnimInfoPlayUrl:config:error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray<id> *args = message;
+        NSString *arg_playUrl = GetNullableObjectAtIndex(args, 0);
+        FTCEffectConfigMsg *arg_config = GetNullableObjectAtIndex(args, 1);
+        FlutterError *error;
+        FTCEffectAnimInfoMsg *output = [api preloadTCAnimInfoPlayUrl:arg_playUrl config:arg_config error:&error];
+        callback(wrapResult(output, error));
+      }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
 }
 @interface FTCMediaXBaseFlutterEvent ()
 @property(nonatomic, strong) NSObject<FlutterBinaryMessenger> *binaryMessenger;

@@ -1,6 +1,6 @@
 # Gift AR Flutter
 
-Gift AR Flutter plugin project.
+English | [简体中文](./README_CN.md)
 
 ## OverView
 
@@ -13,9 +13,23 @@ Gift AR provides clients with efficient and smooth animation effects playback so
 | High device compatibility            | Deeply optimized playback performance, compatible with mid-to-low end devices, ensuring smooth user experience across various hardware configurations. |
 | High security                        | Encrypt special effect resources to prevent piracy and tampering, ensuring customer content and asset security. |
 
+## Directory Structure
+
+This directory contains the demo source code of the Gift AR SDK for Android, which shows you how to call the APIs to implement basic features.
+
+```
+├── android                        // The android source code for plugin.
+├── ios                            // The iOS source code for plugin.
+├── lib                            // The dart source code for plugin.
+└── example                        // The demo source code
+    ├── android                    // The android demo source code
+    ├── ios                        // The ios demo source code
+    └── lib                        // The dart demo source code
+```
+
 ## Related Documents
 
-- [Quick Run Demo](./doc/Quick%20Run%20Demo-EN.md)
-- [Integration Guide](./doc/Integration%20Guide_EN.md)
-- [User Documentation](./doc/User%20Documentation-EN.md)
-- [API Documentation](./doc/API%20Documentation-EN.md)
+- [Quick Run Demo](https://www.tencentcloud.com/document/product/1143/73974)
+- [Integration Guide](https://www.tencentcloud.com/document/product/1143/73975)
+- [User Documentation](https://www.tencentcloud.com/document/product/1143/73976)
+- [API Documentation](https://www.tencentcloud.com/document/product/1143/73977)
