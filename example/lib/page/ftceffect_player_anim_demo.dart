@@ -18,7 +18,7 @@ class FTCEffectPlayerAnimDemoState extends State<FTCEffectPlayerAnimDemo> {
   int _curAnimIndex = 0;
   List<String> animList = DemoAssetHelper.instance.getAnimPathList();
   // use extendMapParams to set licenseKey info
-  final FTCEffectConfig _curConfig = FTCEffectConfig()..extendMapParams = {"PARAM_OPTIONAL_STRING_EXTRA_LICENSE_KEY":"{your license key}"};
+  final FTCEffectConfig _curConfig = FTCEffectConfig()..extendMapParams = {"PARAM_OPTIONAL_STRING_EXTRA_RESOURCE_SIG":"{your resource sig}"};
 
   ///
   /// hard code
