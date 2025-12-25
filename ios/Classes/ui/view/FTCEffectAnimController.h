@@ -23,6 +23,7 @@
                binaryMessenger:(id<FlutterBinaryMessenger>) messenger
                     effectView:(TCEffectAnimView *)effectView;
 
+- (void)releaseRefObject;
 
 - (nonnull TCEffectAnimView*) getAnimView;
 
