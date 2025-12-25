@@ -106,6 +106,12 @@
     [self.tceAnimView stopPlay];
 }
 
+- (void)releaseRefObject {
+    [self.tceAnimView stopPlay];
+    self.tceAnimView = nil;
+    self.tceAnimViewFlutterEvent = nil;
+}
+
 - (void)setRateRate:(double)rate error:(FlutterError * _Nullable __autoreleasing *)error {
     [self.tceAnimView setRate:rate];
 }

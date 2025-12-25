@@ -29,7 +29,8 @@
 
 - (void)dealloc
 {
-  
+    [self.controller releaseRefObject];
+    self.controller = nil;
 }
 
 - (nonnull UIView *)view { 
