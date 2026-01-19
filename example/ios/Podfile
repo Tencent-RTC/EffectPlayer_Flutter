@@ -28,9 +28,9 @@ require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelpe
 flutter_ios_podfile_setup
 
 target 'Runner' do
-  
-  pod 'TCMediaX', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.2.29306/TCMediaX.podspec'
-  pod 'TCEffectPlayer', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.2.29306/TCEffectPlayer.podspec'
+  use_frameworks!
+  pod 'TCMediaX', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.3.29306/TCMediaX.podspec'
+  pod 'TCEffectPlayer', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.3.29306/TCEffectPlayer.podspec'
   pod 'YTCommonXMagic', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/podspec/release/YTCommonXMagic_1.3.1/YTCommonXMagic.podspec'
   
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))

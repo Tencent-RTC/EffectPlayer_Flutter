@@ -15,6 +15,17 @@ const _kTCMP4AnimNames = [
   "anim/avatar2.tcmp4",
 ];
 
+const _kOnlineAnimURLs = [
+  "https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/Res/flutter_anim/anim.mp4",
+  "https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/Res/flutter_anim/anim_mix.mp4",
+];
+
+const _kOnlineTCMP4URLs = [
+  "https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/Res/flutter_anim/avatar1.tcmp4",
+  "https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/Res/flutter_anim/avatar2.tcmp4",
+];
+
+
 class DemoAssetHelper {
   static DemoAssetHelper? _instance;
 
@@ -72,6 +83,12 @@ class DemoAssetHelper {
     return resulList;
   }
 
+  List<String> getAnimPathWithURLList() {
+    List<String> resultList = getAnimPathList();
+    resultList.addAll(_kOnlineAnimURLs);
+    return resultList;
+  }
+
   List<String> getTCMP4AnimPathList() {
     List<String> resulList = [];
     if (Platform.isAndroid || Platform.isIOS) {
@@ -80,5 +97,11 @@ class DemoAssetHelper {
       }
     }
     return resulList;
+  }
+
+  List<String> getTCMP4AnimPathWithURLList() {
+    List<String> resultList = getTCMP4AnimPathList();
+    resultList.addAll(_kOnlineTCMP4URLs);
+    return resultList;
   }
 }

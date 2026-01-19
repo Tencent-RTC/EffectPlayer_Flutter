@@ -16,7 +16,7 @@ class FTCEffectPlayerAnimDemo extends StatefulWidget {
 class FTCEffectPlayerAnimDemoState extends State<FTCEffectPlayerAnimDemo> {
   FTCEffectViewController? _effectViewController;
   int _curAnimIndex = 0;
-  List<String> animList = DemoAssetHelper.instance.getAnimPathList();
+  List<String> animList = DemoAssetHelper.instance.getAnimPathWithURLList();
   // use extendMapParams to set licenseKey info
   final FTCEffectConfig _curConfig = FTCEffectConfig()..extendMapParams = {"PARAM_OPTIONAL_STRING_EXTRA_RESOURCE_SIG":"{your resource sig}"};
 

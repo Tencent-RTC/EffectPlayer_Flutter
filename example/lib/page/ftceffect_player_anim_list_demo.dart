@@ -15,7 +15,7 @@ class FTCEffectPlayerAnimListDemo extends StatefulWidget {
 class _FTCEffectPlayerAnimListDemoState
     extends State<FTCEffectPlayerAnimListDemo> {
 
-  final List<String> _animFileList = DemoAssetHelper.instance.getTCMP4AnimPathList();
+  final List<String> _animFileList = DemoAssetHelper.instance.getTCMP4AnimPathWithURLList();
 
   @override
   Widget build(BuildContext context) {
