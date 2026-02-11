@@ -48,6 +48,7 @@ android {
         implementation rootProject.ext.tcmediaxSDK
         implementation rootProject.ext.effectPlayerSDK
         implementation rootProject.ext.xmagicAuthSDK
+        implementation rootProject.ext.liteAVPlayerMini
         testImplementation("junit:junit:4.13.2")
         testImplementation("org.mockito:mockito-core:5.0.0")
     }

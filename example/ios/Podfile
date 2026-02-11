@@ -29,9 +29,10 @@ flutter_ios_podfile_setup
 
 target 'Runner' do
   use_frameworks!
-  pod 'TCMediaX', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.3.29306/TCMediaX.podspec'
-  pod 'TCEffectPlayer', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.3.29306/TCEffectPlayer.podspec'
+  pod 'TCMediaX', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.3.29307/TCMediaX.podspec'
+  pod 'TCEffectPlayer', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/customer/podspec/favorited/3.3.29307/TCEffectPlayer.podspec'
   pod 'YTCommonXMagic', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/podspec/release/YTCommonXMagic_1.3.1/YTCommonXMagic.podspec'
+  pod 'TXLiteAVSDK_Player', :podspec => 'https://mediacloud-76607.gzc.vod.tencent-cloud.com/MediaX/iOS/podspec/release/miniplayer/11.4.14489/TXLiteAVSDK_Player.podspec'
   
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do
