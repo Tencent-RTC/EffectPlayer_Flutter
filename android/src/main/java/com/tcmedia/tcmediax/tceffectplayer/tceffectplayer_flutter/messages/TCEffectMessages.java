@@ -944,6 +944,18 @@ public class TCEffectMessages {
     void setLicense(@NonNull String url, @NonNull String key);
 
     void setLogEnable(@NonNull Boolean enable);
+    /**
+     * 设置是否启用兼容模式
+     * 
+     * 当启用时，动画 PlatformView 会使用更稳定的渲染方式，
+     * 可以避免在某些设备上出现的 fd 泄漏和 GPU crash 问题。
+     * 
+     * - Android：使用 SurfaceTexture RenderTarget
+     * - iOS：暂无影响（预留接口）
+     * 
+     * @param enable true 启用（默认），false 禁用
+     */
+    void enableCompatMode(@NonNull Boolean enable);
 
     /** The codec used by FTCMediaXBaseApi. */
     static @NonNull MessageCodec<Object> getCodec() {
@@ -991,6 +1003,29 @@ public class TCEffectMessages {
                 Boolean enableArg = (Boolean) args.get(0);
                 try {
                   api.setLogEnable(enableArg);
+                  wrapped.add(0, null);
+                }
+ catch (Throwable exception) {
+                  wrapped = wrapError(exception);
+                }
+                reply.reply(wrapped);
+              });
+        } else {
+          channel.setMessageHandler(null);
+        }
+      }
+      {
+        BasicMessageChannel<Object> channel =
+            new BasicMessageChannel<>(
+                binaryMessenger, "dev.flutter.pigeon.flutter_effect_player.FTCMediaXBaseApi.enableCompatMode" + messageChannelSuffix, getCodec());
+        if (api != null) {
+          channel.setMessageHandler(
+              (message, reply) -> {
+                ArrayList<Object> wrapped = new ArrayList<>();
+                ArrayList<Object> args = (ArrayList<Object>) message;
+                Boolean enableArg = (Boolean) args.get(0);
+                try {
+                  api.enableCompatMode(enableArg);
                   wrapped.add(0, null);
                 }
  catch (Throwable exception) {

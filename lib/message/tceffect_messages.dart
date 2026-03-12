@@ -359,6 +359,37 @@ class FTCMediaXBaseApi {
       return;
     }
   }
+
+  /// 设置是否启用兼容模式
+  /// 
+  /// 当启用时，动画 PlatformView 会使用更稳定的渲染方式，
+  /// 可以避免在某些设备上出现的 fd 泄漏和 GPU crash 问题。
+  /// 
+  /// - Android：使用 SurfaceTexture RenderTarget
+  /// - iOS：暂无影响（预留接口）
+  /// 
+  /// @param enable true 启用（默认），false 禁用
+  Future<void> enableCompatMode(bool enable) async {
+    final String pigeonVar_channelName = 'dev.flutter.pigeon.flutter_effect_player.FTCMediaXBaseApi.enableCompatMode$pigeonVar_messageChannelSuffix';
+    final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
+      pigeonVar_channelName,
+      pigeonChannelCodec,
+      binaryMessenger: pigeonVar_binaryMessenger,
+    );
+    final List<Object?>? pigeonVar_replyList =
+        await pigeonVar_channel.send(<Object?>[enable]) as List<Object?>?;
+    if (pigeonVar_replyList == null) {
+      throw _createConnectionError(pigeonVar_channelName);
+    } else if (pigeonVar_replyList.length > 1) {
+      throw PlatformException(
+        code: pigeonVar_replyList[0]! as String,
+        message: pigeonVar_replyList[1] as String?,
+        details: pigeonVar_replyList[2],
+      );
+    } else {
+      return;
+    }
+  }
 }
 
 class FTCEffectAnimViewApi {

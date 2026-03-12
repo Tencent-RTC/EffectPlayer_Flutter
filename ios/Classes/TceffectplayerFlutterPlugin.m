@@ -54,6 +54,10 @@ TceffectplayerFlutterPlugin* instance;
     [[TCMediaXBase getInstance] setLogEnable:enable];
 }
 
+- (void)enableCompatModeEnable:(BOOL)enable error:(FlutterError *_Nullable *_Nonnull)error {
+    // iOS 暂无影响，预留接口
+}
+
 #pragma mark - TCMediaXBaseDelegate
 
 - (void)onLicenseCheckCallback:(int)errcode withParam:(NSDictionary *)param{

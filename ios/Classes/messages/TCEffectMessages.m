@@ -390,6 +390,33 @@ void SetUpFTCMediaXBaseApiWithSuffix(id<FlutterBinaryMessenger> binaryMessenger,
       [channel setMessageHandler:nil];
     }
   }
+  /// 设置是否启用兼容模式
+  /// 
+  /// 当启用时，动画 PlatformView 会使用更稳定的渲染方式，
+  /// 可以避免在某些设备上出现的 fd 泄漏和 GPU crash 问题。
+  /// 
+  /// - Android：使用 SurfaceTexture RenderTarget
+  ///
+  /// @param enable true 启用（默认），false 禁用
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:[NSString stringWithFormat:@"%@%@", @"dev.flutter.pigeon.flutter_effect_player.FTCMediaXBaseApi.enableCompatMode", messageChannelSuffix]
+        binaryMessenger:binaryMessenger
+        codec:nullGetTCEffectMessagesCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(enableCompatModeEnable:error:)], @"FTCMediaXBaseApi api (%@) doesn't respond to @selector(enableCompatModeEnable:error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray<id> *args = message;
+        BOOL arg_enable = [GetNullableObjectAtIndex(args, 0) boolValue];
+        FlutterError *error;
+        [api enableCompatModeEnable:arg_enable error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
 }
 void SetUpFTCEffectAnimViewApi(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FTCEffectAnimViewApi> *api) {
   SetUpFTCEffectAnimViewApiWithSuffix(binaryMessenger, api, @"");
