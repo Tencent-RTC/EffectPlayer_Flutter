@@ -3,7 +3,7 @@ rootProject.ext {
     minSdkVersion = 21
     targetSdkVersion = 28
     tceffectPlayerVersion = "1.0.0"
-    tcmediaxSDK = 'com.tencent.mediacloud:TCMediaX:3.3.0.253'
-    effectPlayerSDK = 'com.tencent.mediacloud:TCEffectPlayer:3.3.0.253'
-    xmagicAuthSDK = 'com.tencent.mediacloud:TCXMagicAuth:3.3.0.253'
+    tcmediaxSDK = 'com.tencent.mediacloud:TCMediaX:3.3.0.254'
+    effectPlayerSDK = 'com.tencent.mediacloud:TCEffectPlayer:3.3.0.254'
+    xmagicAuthSDK = 'com.tencent.mediacloud:TCXMagicAuth:3.3.0.254'
 }
