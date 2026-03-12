@@ -84,6 +84,17 @@ abstract class FTCMediaXBaseApi {
 
   void setLogEnable(bool enable);
 
+  /// 设置是否启用兼容模式
+  /// 
+  /// 当启用时，在特定设备（如 Pixel）上动画 PlatformView 会使用更稳定的渲染方式，
+  /// 可以避免出现的 fd 泄漏和 GPU crash 问题。
+  /// 
+  /// - Android：仅在 Pixel 设备上生效，使用 SurfaceTexture RenderTarget
+  /// - iOS：暂无影响
+  /// 
+  /// @param enable true 启用（默认），false 禁用
+  void enableCompatMode(bool enable);
+
 }
 
 @HostApi()

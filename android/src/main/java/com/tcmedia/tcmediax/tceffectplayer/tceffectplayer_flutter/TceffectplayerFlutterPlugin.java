@@ -59,6 +59,14 @@ public class TceffectplayerFlutterPlugin implements FlutterPlugin, TCEffectMessa
     TCMediaXBase.getInstance().setLogEnable(mFlutterPlugin.getApplicationContext(), enable);
   }
 
+  @Override
+  public void enableCompatMode(@NonNull Boolean enable) {
+    Log.d(TAG, "enableCompatMode: " + enable);
+    if (mEffectViewFactory != null) {
+      mEffectViewFactory.enableCompatMode(enable);
+    }
+  }
+
   /**
    * flutter message callback
    */

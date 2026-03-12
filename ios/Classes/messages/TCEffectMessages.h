@@ -97,6 +97,16 @@ NSObject<FlutterMessageCodec> *nullGetTCEffectMessagesCodec(void);
 @protocol FTCMediaXBaseApi
 - (void)setLicenseUrl:(NSString *)url key:(NSString *)key error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setLogEnableEnable:(BOOL)enable error:(FlutterError *_Nullable *_Nonnull)error;
+/// 设置是否启用兼容模式
+/// 
+/// 当启用时，动画 PlatformView 会使用更稳定的渲染方式，
+/// 可以避免在某些设备上出现的 fd 泄漏和 GPU crash 问题。
+/// 
+/// - Android：使用 SurfaceTexture RenderTarget
+/// - iOS：暂无影响（预留接口）
+/// 
+/// @param enable true 启用（默认），false 禁用
+- (void)enableCompatModeEnable:(BOOL)enable error:(FlutterError *_Nullable *_Nonnull)error;
 @end
 
 extern void SetUpFTCMediaXBaseApi(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FTCMediaXBaseApi> *_Nullable api);
