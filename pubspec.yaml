@@ -1,6 +1,6 @@
 name: flutter_effect_player
 description: "Gift AR Flutter plugin project."
-version: 3.3.1
+version: 3.4.0
 homepage: https://github.com/Tencent-RTC/EffectPlayer_Flutter
 
 environment:
