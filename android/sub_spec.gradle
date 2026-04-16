@@ -1,0 +1,35 @@
+import java.util.regex.Pattern
+
+def getSubSpecFromPubspec() {
+    def allowedVersions = ['Default', 'NoXMagic']
+
+    // rootProject.projectDir 通常是 [HostApp]/android/
+    def hostProjectRoot = rootProject.projectDir.parentFile
+    def pubspecFile = new File(hostProjectRoot, "pubspec.yaml")
+
+    println("[EffectPlayer] pubspec: ${pubspecFile.absolutePath}")
+
+    if (pubspecFile.exists()) {
+        def content = pubspecFile.text
+        def pattern = Pattern.compile("EffectPlayer:\\s*\\n\\s*sub_spec:\\s*['\"]?([\\w-]+)['\"]?")
+        def matcher = pattern.matcher(content)
+
+        if (matcher.find()) {
+            def result = matcher.group(1)
+            if (result in allowedVersions) {
+                println("[EffectPlayer] sub_spec: ${result}")
+                return result
+            } else {
+                println("[EffectPlayer] warn: invalid sub_spec '${result}', fallback to Default")
+                return "Default"
+            }
+        } else {
+            println("[EffectPlayer] sub_spec not set, use default: Default")
+        }
+    } else {
+        println("[EffectPlayer] pubspec.yaml not found, use default: Default")
+    }
+    return "Default"
+}
+
+ext.subSpecVersion = getSubSpecFromPubspec()
