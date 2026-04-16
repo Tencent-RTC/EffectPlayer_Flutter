@@ -25,7 +25,10 @@ rootProject.allprojects {
 }
 
 apply plugin: "com.android.library"
-apply from:'config.gradle'
+apply from: 'config.gradle'
+apply from: 'sub_spec.gradle'
+
+def subSpecVersion = project.ext.subSpecVersion
 
 version = rootProject.ext.tceffectPlayerVersion
 
@@ -45,9 +48,13 @@ android {
 
     dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar'])
-        implementation rootProject.ext.tcmediaxSDK
-        implementation rootProject.ext.effectPlayerSDK
-        implementation rootProject.ext.xmagicAuthSDK
+        if (subSpecVersion == 'NoXMagic') {
+            implementation(rootProject.ext.effectPlayerSDK) {
+                exclude group: "com.tencent.mediacloud", module: "TCXMagicAuth"
+            }
+        } else {
+            implementation rootProject.ext.effectPlayerSDK
+        }
         testImplementation("junit:junit:4.13.2")
         testImplementation("org.mockito:mockito-core:5.0.0")
     }
