@@ -1,3 +1,11 @@
+
+#### Version: 3.4.1
+
+##### Features：
+
+- Support configuring sub_spec in pubspec.yaml to control whether to include the XMagicAuth library.
+
+
 #### Version: 3.4.0
 
 ##### Features：
